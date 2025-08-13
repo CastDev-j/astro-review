@@ -1,8 +1,13 @@
 import { useStore } from "@nanostores/react";
-import { counters } from "src/store/nanoStore";
+import { counters, isLoading } from "src/store/nanoStore";
 
 export const CounterInfo = () => {
   const counterList = useStore(counters);
+  const loading = useStore(isLoading);
+
+  if (loading) {
+    return <CounterInfoLoader />;
+  }
 
   const total = counterList.length;
   const activeCount = counterList.filter((c) => c.active).length;
@@ -54,6 +59,34 @@ export const CounterInfo = () => {
             <li>
               Impares: <span className="font-semibold">{oddCount}</span>
             </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CounterInfoLoader = () => {
+  return (
+    <div className="p-4 mx-auto animate-pulse">
+      <h2 className="text-lg font-bold mb-2 bg-gray-200 rounded w-2/3 h-6"></h2>
+      <div className="grid grid-cols-2 gap-4 text-sm">
+        <div>
+          <ul className="space-y-1">
+            {[...Array(5)].map((_, i) => (
+              <li key={i}>
+                <span className="inline-block bg-gray-200 rounded w-1/2 h-4"></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <ul className="space-y-1">
+            {[...Array(4)].map((_, i) => (
+              <li key={i}>
+                <span className="inline-block bg-gray-200 rounded w-1/2 h-4"></span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

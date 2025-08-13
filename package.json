@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/db": "^0.17.1",
     "@astrojs/netlify": "^6.5.6",
     "@astrojs/react": "^4.3.0",
     "@gsap/react": "^2.1.2",

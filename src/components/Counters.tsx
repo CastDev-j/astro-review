@@ -109,9 +109,11 @@ export const Counters = () => {
               </button>
               <button
                 className={cn(
-                  "px-2 py-1 rounded border text-xs bg-red-50 text-red-700 hover:bg-red-100 border-red-200"
+                  "px-2 py-1 rounded border text-xs bg-red-50 text-red-700 hover:bg-red-100 border-red-200",
+                  !counter.active && "text-red-300 border-red-100 cursor-not-allowed bg-red-50 hover:bg-red-50"
                 )}
                 onClick={() => deleteCounter(idx)}
+                disabled={!counter.active}
                 title="Borrar contador"
               >
                 <FaTrash />

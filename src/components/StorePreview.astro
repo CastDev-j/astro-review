@@ -2,9 +2,15 @@
 import { Counters } from "./Counters";
 import { CounterInfo } from "./CounterInfo";
 
+import { LoginLogout } from "@/components/LoginLogout";
+import { getSession } from "auth-astro/server";
+
+const session = await getSession(Astro.request);
 ---
 
 <div class="max-w-md mx-auto animate-fade animate-once animate-duration-100">
+  <LoginLogout session={session} client:load />
+
   <CounterInfo client:load />
   <Counters client:load />
 </div>

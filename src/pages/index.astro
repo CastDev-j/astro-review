@@ -1,9 +1,11 @@
 ---
-import StorePreview from '@/components/StorePreview.astro';
-import Layout from '@/layouts/Layout.astro';
+import StorePreview from "@/components/StorePreview.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import { getSession } from "auth-astro/server";
 
 ---
 
 <Layout>
-	<StorePreview />
+  <StorePreview />
 </Layout>

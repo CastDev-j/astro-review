@@ -1,8 +1,12 @@
-import type { APIRoute } from "astro";
+
+import type { APIContext, APIRoute } from "astro";
 import { db, Counter, eq } from "astro:db";
 
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async (context: APIContext) => {
   try {
+
+    
+
     const counters = await db.select().from(Counter);
     return new Response(JSON.stringify({ counters }), { status: 200 });
   } catch (error) {
